@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Operasi Pecahan Kelas 6 SD</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f9fa;
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            max-width: 700px;
+            background: white;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 3px solid #add8e6;
+        }
+        h1 {
+            text-align: center;
+            color: #4682b4;
+            margin-bottom: 5px;
+        }
+        h2 {
+            color: #5f9ea0;
+            border-bottom: 2px solid #b0e0e6;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        .intro {
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #666;
+        }
+        .question-card {
+            background-color: #fbfcff;
+            border-left: 5px solid #4682b4;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 2px solid #add8e6;
+            border-radius: 8px;
+            font-size: 1em;
+            outline: none;
+            transition: 0.3s;
+        }
+        input[type="text"]:focus {
+            border-color: #4682b4;
+            background-color: #fff;
+        }
+        button {
+            display: block;
+            width: 100%;
+            background-color: #4682b4;
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: 0.2s;
+            margin-top: 25px;
+        }
+        button:hover {
+            background-color: #315f85;
+        }
+        #result {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 10px;
+            display: none;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+        .feedback {
+            margin-top: 8px;
+            font-size: 0.95em;
+            font-weight: bold;
+        }
+        .correct-feed { color: #2ecc71; }
+        .wrong-feed { color: #e74c3c; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>✏️ Kuis Matematika: Operasi Pecahan</h1>
+    <p class="intro">Latihan Operasi Hitung Pecahan untuk Kelas 6 SD</p>
+    
+    <form id="quizForm">
+        
+        <h2>Bagian 1: Hitungan Langsung</h2>
+        
+        <div class="question-card">
+            <div class="question-text">1. Hasil dari: 2/3 + 1/4 - 1/2 = ...</div>
+            <input type="text" id="q1" placeholder="Ketik jawabanmu dalam pecahan biasa...">
+            <div id="f1" class="feedback"></div>
+        </div>
+
+        <div class="question-card">
+            <div class="question-text">2. Hasil dari: 2 1/2 x 4/5 = ...</div>
+            <input type="text" id="q2" placeholder="Ketik angka jawaban bulatmu...">
+            <div id="f2" class="feedback"></div>
+        </div>
+
+        <div class="question-card">
+            <div class="question-text">3. Hasil dari: 3/8 : 1/2 = ...</div>
+            <input type="text" id="q3" placeholder="Ketik jawabanmu dalam pecahan biasa atau desimal...">
+            <div id="f3" class="feedback"></div>
+        </div>
+
+        <div class="question-card">
+            <div class="question-text">4. Hasil dari: 1 3/5 - 2/3 = ...</div>
+            <input type="text" id="q4" placeholder="Ketik jawabanmu dalam pecahan biasa...">
+            <div id="f4" class="feedback"></div>
+        </div>
+
+        <div class="question-card">
+            <div class="question-text">5. Hasil dari: (1/3 + 1/2) : 5/6 = ...</div>
+            <input type="text" id="q5" placeholder="Ketik angka jawaban bulatmu...">
+            <div id="f5" class="feedback"></div>
+        </div>
+
+        <h2>Bagian 2: Soal Cerita</h2>
+
+        <div class="question-card">
+            <div class="question-text">6. Siti memiliki pita sepanjang 4 1/2 meter. Ia menggunakan 1 3/4 meter pita tersebut untuk menghias sebuah kado. Kemudian, Ibu memberikan Siti pita tambahan sepanjang 5/8 meter. Berapa meter panjang pita Siti sekarang?</div>
+            <input type="text" id="q6" placeholder="Bisa diketik dalam pecahan campuran, pecahan biasa, atau desimal...">
+            <div id="f6" class="feedback"></div>
+        </div>
+
+        <div class="question-card">
+            <div class="question-text">7. Di dalam sebuah wadah terdapat 3 liter madu. Madu tersebut akan dituang ke dalam beberapa botol kecil sampai habis. Jika setiap botol kecil hanya bisa menampung 3/4 liter madu, berapa banyak botol kecil yang dibutuhkan?</div>
+            <input type="text" id="q7" placeholder="Ketik angka jumlah botol saja...">
+            <div id="f7" class="feedback"></div>
+        </div>
+
+        <button type="button" onclick="checkAnswers()">Periksa Jawaban Hasil ✨</button>
+    </form>
+
+    <div id="result"></div>
+</div>
+
+<script>
+    function checkAnswers() {
+        // Kunci jawaban rahasia pendukung variasi format input anak
+        const keys = {
+            q1: ["5/12"],
+            q2: ["2", "2,0", "2.0"],
+            q3: ["3/4", "0.75", "0,75"],
+            q4: ["14/15"],
+            q5: ["1", "1,0", "1.0"],
+            q6: ["3 3/8", "27/8", "3.375", "3,375"],
+            q7: ["4"]
+        };
+
+        let score = 0;
+        let totalQuestions = 7;
+
+        for (let i = 1; i <= totalQuestions; i++) {
+            let inputVal = document.getElementById("q" + i).value.trim();
+            let feedback = document.getElementById("f" + i);
+            let isCorrect = keys["q" + i].includes(inputVal);
+
+            if (isCorrect) {
+                score++;
+                feedback.innerHTML = "✓ Benar!";
+                feedback.className = "feedback correct-feed";
+            } else {
+                feedback.innerHTML = "✗ Belum tepat. Silakan teliti kembali langkah hitungmu!";
+                feedback.className = "feedback wrong-feed";
+            }
+        }
+
+        // Tampilkan kalkulasi skor total akhir
+        let resultDiv = document.getElementById("result");
+        resultDiv.style.display = "block";
+        
+        let finalScore = Math.round((score / totalQuestions) * 100);
+        if(finalScore >= 70) {
+            resultDiv.style.backgroundColor = "#d4edda";
+            resultDiv.style.color = "#155724";
+            resultDiv.innerHTML = `Luar Biasa! Skor Kamu: ${finalScore} / 100 🌟<br>Kamu menguasai materi operasi pecahan dengan sangat baik!`;
+        } else {
+            resultDiv.style.backgroundColor = "#fff3cd";
+            resultDiv.style.color = "#856404";
+            resultDiv.innerHTML = `Skor Kamu: ${finalScore} / 100 <br>Jangan menyerah, coba periksa kembali nomor yang masih keliru ya! 💪`;
+        }
+        
+        resultDiv.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
