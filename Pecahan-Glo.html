@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Matematika Pecahan Kelas 6</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff0f5;
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            max-width: 700px;
+            background: white;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 3px solid #ffb6c1;
+        }
+        h1 {
+            text-align: center;
+            color: #ff69b4;
+        }
+        .intro {
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #666;
+        }
+        .question-card {
+            background-color: #fff9fa;
+            border-left: 5px solid #ff69b4;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 2px solid #ffb6c1;
+            border-radius: 8px;
+            font-size: 1em;
+            outline: none;
+            transition: 0.3s;
+        }
+        input[type="text"]:focus {
+            border-color: #ff69b4;
+            background-color: #fff;
+        }
+        button {
+            display: block;
+            width: 100%;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: 0.2s;
+        }
+        button:hover {
+            background-color: #ff1493;
+        }
+        #result {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 10px;
+            display: none;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+        .feedback {
+            margin-top: 8px;
+            font-size: 0.95em;
+            font-weight: bold;
+        }
+        .correct-feed { color: #2ecc71; }
+        .wrong-feed { color: #e74c3c; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🌸 Kuis Matematika Pecahan Kurikulum Merdeka 🌸</h1>
+    <p class="intro">Halo! Yuk, asah kemampuan matematikamu dengan menjawab 10 soal cerita pecahan di bawah ini. Ketik jawabanmu pada kolom yang disediakan ya!</p>
+    
+    <form id="quizForm">
+        <div class="question-card">
+            <div class="question-text">1. Di sebuah kelas, 3/5 bagian sisanya adalah perempuan. Jika total siswa adalah 40 orang, lalu 1/4 dari siswa laki-laki mengikuti ekskul basket, berapa jumlah laki-laki yang ikut basket?</div>
+            <input type="text" id="q1" placeholder="Ketik angka jawabanmu di sini...">
+            <div id="f1" class="feedback"></div>
+        </div>
+
+        <div class="question-card">
+            <div class="question-text">2. Luas sebuah kebun adalah 12 1/2 m². Jika 1/5 bagian ditanami mawar dan sisanya ditanami melati, berapa m² luas area yang ditanami melati?</div>
+            <input type="text" id="q2" placeholder="Ketik angka jawabanmu di sini...">
+            <div id="f2" class="feedback"></div>
+        </div>
+
+        <div class="question-card">
+            <div class="question-text">3. Pak Budi memiliki 2 3/4 hektar sawah. Beliau menjual 1/2 hektar, lalu membagikan sisa sawahnya kepada 3 anaknya secara merata. Berapa hektar sawah yang diterima setiap anak?</div>
+            <input type="text" id="q3" placeholder="Bisa kamu ketik dalam bentuk pecahan biasa atau desimal...">
+            <div id="f3" class="feedback"></div>
+        </div>
+
+        <div class="question-card">
+            <div class="question-text">4. Sebuah tangki berisi air 3/4 bagian. Setelah digunakan 15 liter, air dalam tangki tersisa 1/2 bagian. Berapa liter kapasitas total tangki tersebut?</div>
+            <input type="text" id="q4" placeholder="Ketik angka jawabanmu di sini...">
+            <div id="f4" class="feedback"></div>
+        </div>
+
+        <div class="question-card">
+            <div class="question-text">5. Hasil dari (2/3 + 1/4) x 1/2 adalah...</div>
+            <input type="text" id="q5" placeholder="Ketik jawabanmu dalam pecahan biasa...">
+            <div id="f5" class="feedback"></div>
+        </div>
+
+        <div class="question-card">
+            <div class="question-text">6. Glosheina berlari sejauh 2 1/4 km pada hari Senin dan 1 3/8 km pada hari Selasa. Jika ia ingin mencapai total 5 km dalam tiga hari, berapa km ia harus berlari pada hari Rabu?</div>
+            <input type="text" id="q6" placeholder="Bisa kamu ketik pecahan campuran atau pecahan biasa...">
+            <div id="f6" class="feedback"></div>
+        </div>
+
+        <div class="question-card">
+            <div class="question-text">7. Ibu dan Glosheina ingin membuat kue. Mereka memiliki 2 1/2 kg tepung terigu. Jika sebanyak 2/5 bagian digunakan untuk membuat bolu, berapa kg sisa tepung terigu yang belum digunakan?</div>
+            <input type="text" id="q7" placeholder="Bisa kamu ketik pecahan campuran atau desimal...">
+            <div id="f7" class="feedback"></div>
+        </div>
+
+        <div class="question-card">
+            <div class="question-text">8. Glosheina memiliki pita sepanjang 3 3/4 meter. Ia menggunakan 1 1/4 meter untuk menghias kado. Sisa pita tersebut kemudian dipotong menjadi 2 bagian sama panjang untuk kuncir rambut. Berapa meter panjang setiap kuncir rambut?</div>
+            <input type="text" id="q8" placeholder="Bisa kamu ketik pecahan campuran atau desimal...">
+            <div id="f8" class="feedback"></div>
+        </div>
+
+        <div class="question-card">
+            <div class="question-text">9. Setiap minggu, Glosheina mendapatkan uang saku sebesar Rp50.000. Ia menyisihkan 1/5 bagian untuk ditabung, dan 1/2 dari sisa uang sakunya untuk keperluan sekolah. Berapa rupiah uang untuk keperluan sekolah?</div>
+            <input type="text" id="q9" placeholder="Ketik angkanya saja tanpa titik atau Rp...">
+            <div id="f9" class="feedback"></div>
+        </div>
+
+        <div class="question-card">
+            <div class="question-text">10. Glosheina membuat 3 liter jus jeruk. Teman-temannya meminum sebanyak 1 3/4 liter. Kemudian, Ibu menambahkan lagi sebanyak 1/2 liter jus jeruk ke wadah. Berapa liter total jus jeruk di wadah sekarang?</div>
+            <input type="text" id="q10" placeholder="Bisa kamu ketik pecahan campuran atau desimal...">
+            <div id="f10" class="feedback"></div>
+        </div>
+
+        <button type="button" onclick="checkAnswers()">Periksa Jawaban ✨</button>
+    </form>
+
+    <div id="result"></div>
+</div>
+
+<script>
+    function checkAnswers() {
+        // Sistem mencocokkan jawaban anak dengan kunci rahasia di bawah ini
+        const keys = {
+            q1: ["4"],
+            q2: ["10"],
+            q3: ["3/4", "0.75", "0,75"],
+            q4: ["60"],
+            q5: ["11/24"],
+            q6: ["1 3/8", "11/8"],
+            q7: ["1 1/2", "1.5", "1,5"],
+            q8: ["1 1/4", "1.25", "1,25"],
+            q9: ["20000", "20.000"],
+            q10: ["1 3/4", "1.75", "1,75", "7/4"]
+        };
+
+        let score = 0;
+        let totalQuestions = 10;
+
+        for (let i = 1; i <= totalQuestions; i++) {
+            let inputVal = document.getElementById("q" + i).value.trim();
+            let feedback = document.getElementById("f" + i);
+            let isCorrect = keys["q" + i].includes(inputVal);
+
+            if (isCorrect) {
+                score++;
+                feedback.innerHTML = "✓ Benar!";
+                feedback.className = "feedback correct-feed";
+            } else {
+                feedback.innerHTML = "✗ Kurang tepat. Coba periksa kembali hitunganmu ya!";
+                feedback.className = "feedback wrong-feed";
+            }
+        }
+
+        // Tampilkan Hasil Total
+        let resultDiv = document.getElementById("result");
+        resultDiv.style.display = "block";
+        
+        let finalScore = (score / totalQuestions) * 100;
+        if(finalScore >= 70) {
+            resultDiv.style.backgroundColor = "#d4edda";
+            resultDiv.style.color = "#155724";
+            resultDiv.innerHTML = `Hebat! Skor Kamu: ${finalScore} / 100 🌟<br>Kamu memahami materi pecahan dengan sangat baik!`;
+        } else {
+            resultDiv.style.backgroundColor = "#fff3cd";
+            resultDiv.style.color = "#856404";
+            resultDiv.innerHTML = `Skor Kamu: ${finalScore} / 100 <br>Ayo semangat, coba hitung lagi bagian yang masih keliru! 💪`;
+        }
+        
+        resultDiv.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
